@@ -41,7 +41,7 @@
 
 */
 
-#define USE_BARRIERS 0
+#define USE_BARRIERS 1
 
 #define ITERS 1000
 #define DELTA_T 0.01
