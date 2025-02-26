@@ -143,6 +143,20 @@ int main(int argc, char *argv[])
   }
 
   /* -------------------- Add Code Here -------------------- */
+  if (USE_BARRIERS) {
+  if (pthread_barrier_init(&barrier1, NULL, NUM_THREADS) != 0) {
+    printf("Couldn't initializing barrier\n");
+    exit(1);
+  }}
+  //initialize threads
+  for (i = 0; i <= NUM_THREADS; i++) {
+  thread_data_array[i].thread_id   = i;
+  thread_data_array[i].array_index = i;
+  if (pthread_create(&threads[i-1], NULL, worker, (void *) &thread_data_array[i-1]); != 0) {
+    printf("Couldn't create the thread %d\n", i);
+    exit(1);
+  }
+}
 
   /* Display the result */
   for (long t=0; t<NUM_THREADS+2; t++) {
