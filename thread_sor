@@ -150,8 +150,8 @@ int main(int argc, char *argv[])
   }}
   //initialize threads
   for (i = 0; i <= NUM_THREADS; i++) {
-  thread_data_array[i].thread_id   = i;
-  thread_data_array[i].array_index = i;
+  thread_data_array[i-1].thread_id   = i;
+  thread_data_array[i-1].array_index = i;
   if (pthread_create(&threads[i-1], NULL, worker, (void *) &thread_data_array[i-1]); != 0) {
     printf("Couldn't create the thread %d\n", i);
     exit(1);
